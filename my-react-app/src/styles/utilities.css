@@ -1,0 +1,22 @@
+/* Utility classes for common patterns */
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Ensure gradient-text is available globally */
+.hero .gradient-text,
+.features .gradient-text,
+.monitoring .gradient-text,
+.landscape .gradient-text,
+.pricing .gradient-text,
+.faqs .gradient-text {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+

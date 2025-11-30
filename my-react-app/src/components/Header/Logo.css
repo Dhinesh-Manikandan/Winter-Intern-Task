@@ -1,0 +1,24 @@
+.logo-container {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex: none;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 10px;
+  height: 38px;
+  justify-content: center;
+  overflow: visible;
+  padding: 0;
+  position: relative;
+  width: min-content;
+}
+
+.logo-svg {
+  flex: none;
+  height: 25px;
+  position: relative;
+  width: 163px;
+  display: block;
+}
+
