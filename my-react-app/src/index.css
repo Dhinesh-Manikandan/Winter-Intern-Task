@@ -4,8 +4,8 @@
   --secondary-color: #7c3aed;
   
   /* Text Colors */
-  --text-dark: #000000;
-  --text-light: rgba(0, 0, 0, 0.6);
+  --text-dark:white;
+  --text-light: white;
   
   /* Background Colors */
   --bg-white: #ffffff;

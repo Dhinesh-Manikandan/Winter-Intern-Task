@@ -1,6 +1,6 @@
 .faqs {
   padding: 120px 0;
-  background: #ffffff;
+  background: rgb(3, 1, 22);
   position: relative;
   overflow: hidden;
 }
@@ -53,7 +53,7 @@
 }
 
 .faq-item {
-  background: #ffffff;
+  background: rgb(3, 1, 22);
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.06);

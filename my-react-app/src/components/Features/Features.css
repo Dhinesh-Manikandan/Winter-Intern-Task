@@ -1,6 +1,6 @@
 .features {
   padding: 120px 0;
-  background: #ffffff;
+  /* background:rgb(3, 1, 22); */
   position: relative;
   overflow: hidden;
 }
@@ -56,7 +56,7 @@
 }
 
 .feature-card {
-  background: #ffffff;
+  
   padding: 2.5rem 2rem;
   border-radius: 12px;
   text-align: center;

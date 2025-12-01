@@ -1,0 +1,46 @@
+/* Container placed directly below your input box */
+.hero-tilt-section {
+      /* Small gap below input */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Perspective wrapper */
+  .tilt-wrapper {
+    perspective: 1800px;
+    width: min(1180px, 92%);
+    position: relative;
+  }
+  
+  /* Dashboard image */
+  .tilt-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  
+    border-radius: 22px;
+    border: 1px solid rgba(126, 116, 255, 0.22);
+  
+    box-shadow:
+      0 0 0 8px rgba(127, 123, 245, 0.15),
+      0 8px 30px rgba(0, 0, 0, 0.35);
+  
+    will-change: transform;
+  }
+  
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .hero-tilt-section {
+      margin-top: 40px;
+    }
+  
+    .tilt-wrapper {
+      width: 95%;
+    }
+  
+    .tilt-image {
+      border-radius: 14px;
+    }
+  }
+  

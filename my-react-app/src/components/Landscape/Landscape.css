@@ -1,6 +1,6 @@
 .landscape {
   padding: 120px 0;
-  background: #ffffff;
+  /* background: #ffffff; */
   position: relative;
   overflow: hidden;
 }
@@ -93,7 +93,7 @@
 }
 
 .landscape-card {
-  background: white;
+  /* background: white; */
   border-radius: 12px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -113,7 +113,7 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background: #e9ecef;
+  /* background: #e9ecef; */
 }
 
 .landscape-card-dots span:nth-child(1) {

@@ -1,0 +1,22 @@
+
+
+  .logos-scroll-container {
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .logos-scroll-track {
+    display: flex;
+    gap: 20px;
+    flex-shrink: 0;
+  }
+  
+  .logo-item {
+    flex-shrink: 0;
+    width: 150px; /* adjust for your logos */
+    height: 50px; /* adjust for your logos */
+  }
+  

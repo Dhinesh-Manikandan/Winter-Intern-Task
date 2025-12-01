@@ -8,6 +8,9 @@ import Landscape from './components/Landscape/Landscape';
 import Pricing from './components/Pricing/Pricing';
 import FAQs from './components/FAQs/FAQs';
 import Footer from './components/Footer/Footer';
+import HeroImageTilt from './components/Feature_Motion/HeroImageTilt';
+import LogosScroll from './components/LogosScroll/LogosScroll';
+
 import './App.css';
 
 function App() {
@@ -16,6 +19,8 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <HeroImageTilt />
+        <LogosScroll/>
         <Features />
         <FeatureCards />
         <Monitoring />
