@@ -272,6 +272,7 @@
     top: 50%;
     transform: translateY(-1%); /* Perfectly centered vertically */
     background-color: #8b5cf6;
+    color:white;
   }
   .uncovered .arrow-purple {
     left: -8px; 
@@ -338,3 +339,470 @@
 .scan-btn:hover { transform: scale(1.05); }
 
 .wifi-symbol { font-size: 1.1em; letter-spacing: -2px; opacity: 0.8; }
+/* =========================================
+   MONITORING CARD (THIRD CARD) - SCAN EFFECT
+   ========================================= */
+
+   .monitoring-visual {
+    height: 240px; 
+    width: 100%;
+    position: relative; /* Anchor for absolute children */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; 
+    background-color: #020013;
+    border-radius: 8px;
+    border: 1px solid rgb(27, 27, 67);
+}
+
+/* --- LAYER 1: SCAN WINDOW (Background List) --- */
+.scan-window {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    padding: 20px 24px;
+    z-index: 1;
+}
+
+/* IDLE STATE (Paused): Darker, Static */
+.scan-window.paused .scan-content {
+    animation-play-state: paused;
+    opacity: 0.4; /* Dimmed so button pops */
+    filter: blur(0.5px); /* Slight blur for depth */
+}
+
+/* ACTIVE STATE (Scanning): Brighter, Moving */
+.scan-window.active .scan-content {
+    animation-play-state: running;
+    opacity: 0.8;
+    filter: none;
+}
+
+/* The List Container */
+.scan-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    /* Infinite loop animation */
+    animation: scrollUp 2s linear infinite; 
+    will-change: transform;
+}
+
+@keyframes scrollUp {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50%); } 
+}
+
+/* Individual Rows */
+.scan-row {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    line-height: 1;
+}
+
+.scan-num {
+    color: rgb(80, 85, 100); /* Darker number */
+    text-align: right;
+    min-width: 20px;
+    flex-shrink: 0;
+    user-select: none;
+}
+
+.scan-text {
+    color: rgb(152, 161, 178); /* Light grey text */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Gradient Overlay: Fades top/bottom */
+.scan-overlay-gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(
+        to bottom, 
+        #020013 0%, 
+        rgba(2, 0, 19, 0) 15%, 
+        rgba(2, 0, 19, 0) 85%, 
+        #020013 100%
+    );
+    pointer-events: none;
+}
+
+/* --- LAYER 2: BUTTON OVERLAY (Centered) --- */
+.scan-idle-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    /* Optional: Radial gradient to darken background behind button */
+    background: radial-gradient(circle, rgba(2,0,19,0.4) 0%, rgba(2,0,19,0) 70%);
+}
+
+.scan-btn {
+    background: linear-gradient(167deg, #6037ff 0%, #b27aff 100%);
+    border: 1px solid #9b62ff;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 24px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(96, 55, 255, 0.4);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.scan-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(96, 55, 255, 0.6);
+}
+
+.wifi-symbol {
+    font-size: 1.2em;
+    letter-spacing: -2px;
+}
+
+/* --- LAYER 3: RESULT --- */
+.scan-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    z-index: 15;
+}
+
+.result-circle {
+    width: 80px;
+    height: 80px;
+    background: rgba(124, 58, 237, 0.1);
+    border: 2px solid #7c3aed;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.2);
+}
+
+.result-count {
+    font-size: 32px;
+    font-weight: 800;
+    color: white;
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
+
+.result-text { text-align: center; }
+.result-text h4 { margin: 0; color: white; font-size: 16px; }
+.result-text p { margin: 4px 0 0 0; font-size: 12px; color: #f2f2f6; }
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+/* =========================================
+   CARD 4: COMPETITIVE LANDSCAPE (GRAPH)
+   ========================================= */
+
+/* Use span 2 for the wide layout (span 1.5 is not valid in CSS grid) */
+.landscape-card { 
+  grid-column: span 1; 
+  /* block-size: 1000px; */
+}
+
+.landscape-visual {
+  /* position: relative; */
+  height: 240px; /* Increased height for better visibility */
+  width: 100%;
+  /* margin-bottom: 20px; */
+  
+  /* Mask: Fades out the bottom of the graph to blend with card */
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
+
+/* 1. Badges */
+.landscape-badges {
+  display: flex; flex-direction: column; gap: 8px;
+  position: absolute; top: 0; left: 0; z-index: 5;
+}
+.badge {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px; padding: 4px 10px;
+  font-size: 11px; display: flex; align-items: center; gap: 6px;
+  color: #cbd5e1; width: fit-content;
+}
+.dot { width: 8px; height: 8px; border-radius: 50%; }
+.dot.purple { background: #8b5cf6; box-shadow: 0 0 8px rgba(139, 92, 246, 0.5); }
+.dot.grey { background: #475569; }
+
+/* 2. Scrolling Graph Animation */
+.graph-scroll-container {
+  width: 100%; 
+  height: 100%;
+  overflow: hidden; 
+  position: absolute; 
+  top: 0; 
+  left: 0;
+  /* Aligns content to the bottom so peaks are visible */
+  display: flex; 
+  align-items: flex-end; 
+}
+
+.graph-track {
+  display: flex;
+  width: 200%; /* Double width for two graph loops */
+  height: 100%;
+  animation: scrollGraph 10s linear infinite;
+  will-change: transform;
+}
+
+/* Target both the SVG class or standard IMG class */
+.graph-wave, .graph-img {
+  width: 100%; /* Each graph takes 50% of the track (100% of container) */
+  height: 100%; /* Force it to fill the vertical space */
+  display: block;
+  flex-shrink: 0;
+  
+  /* Crucial for making it "Large": stretches the graph to fill the box */
+  object-fit: fill; 
+}
+
+@keyframes scrollGraph {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* 3. Hover Popups (Glassmorphism) */
+.stat-popup {
+  position: absolute;
+  background: rgba(21, 21, 30, 0.7); /* Dark semi-transparent */
+  backdrop-filter: blur(8px); /* Blur effect */
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(139, 92, 246, 0.3); /* Purple border */
+  border-radius: 12px;
+  padding: 8px 14px;
+  display: flex; align-items: center; gap: 12px;
+  z-index: 10;
+  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.8);
+
+  /* Animation States */
+  opacity: 0;
+  transform: translateY(10px) scale(0.95);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Positioning based on "uncovered.so" style */
+.revenue-popup {
+  /* Bottom Leftish */
+  bottom: 30%;
+  left: 25%;
+}
+
+.growth-popup {
+  /* Top Rightish */
+  top: 15%;
+  right: 15%;
+  transition-delay: 0.05s;
+}
+
+/* Reveal on Hover */
+.landscape-card:hover .stat-popup {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.stat-icon-box {
+  width: 20px; height: 20px;
+  background: rgba(34, 197, 94, 0.15); /* Green tint */
+  color: #4ade80; /* Green Icon */
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.stat-info { display: flex; flex-direction: column; line-height: 1.1; }
+.stat-value { font-size: 15px; font-weight: 700; color: white; letter-spacing: 0.3px; }
+.stat-label { font-size: 11px; color: #a1a1aa; font-weight: 500; }
+
+/* =========================================
+   CARD 5: BATTLE CARDS
+   ========================================= */
+
+.battle-card {
+  grid-column: span 2; 
+  padding:30px;
+
+}
+
+   .battle-visual {
+    display: flex;
+    justify-content: space-between;
+    height: 260px; /* Matches Landscape card height */
+    width: 100%;
+    margin-bottom: 20px;
+    gap: 20px;
+  
+  }
+  
+  /* LEFT SIDE: Tabs and Description */
+  .battle-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 10px;
+    gap: 16px;
+  }
+  
+  .battle-label {
+    font-size: 13px;
+    color: #a1a1aa;
+    font-weight: 500;
+  }
+  
+  .battle-tabs {
+    display: flex;
+    background: #18181b;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 4px;
+    width: fit-content;
+  }
+  
+  .battle-tabs button {
+    background: transparent;
+    border: none;
+    color: #71717a;
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .battle-tabs button.active {
+    background: #27272a;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+  
+  .battle-description {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #71717a;
+    max-width: 90%;
+    margin-top: 10px;
+  }
+  
+  .battle-description strong {
+    display: block;
+    color: #a1a1aa;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  
+  /* RIGHT SIDE: Mini Browser Window */
+  .battle-right {
+    flex: 1.3; /* Slightly wider than left side */
+    position: relative;
+  }
+  
+  .mini-browser {
+    height: 100%;
+    width: 100%;
+    border-radius: 12px 12px 0 0; /* Rounded top only to look like it continues down */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s ease;
+  }
+  
+  /* Header inside Mini Browser */
+  .browser-header {
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  
+  .browser-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #8b5cf6;
+    color: white;
+  }
+  
+  /* Body (List) inside Mini Browser */
+  .browser-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  
+  .browser-row {
+    font-size: 12px;
+    font-family: monospace;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding-bottom: 8px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .row-dots {
+    color: #52525b;
+  }
+  
+  /* --- THEME VARIANTS (Dark vs Light) --- */
+  
+  /* DARK MODE (Strengths) */
+  .mini-browser.dark-mode {
+    background: #020013; /* Very dark blue/black */
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .dark-mode .browser-header {
+    background: #0b0c15;
+    border-bottom-color: rgba(255,255,255,0.05);
+    color: white;
+  }
+  .dark-mode .browser-body {
+    color: #a1a1aa;
+  }
+  
+  /* LIGHT MODE (Weaknesses) */
+  .mini-browser.light-mode {
+    background: #ffffff;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .light-mode .browser-header {
+    background: #f4f4f5; /* Light grey header */
+    border-bottom-color: #e4e4e7;
+    color: #18181b; /* Dark text */
+  }
+  .light-mode .browser-body {
+    color: #3f3f46; /* Darker text for readability on white */
+  }
+  .light-mode .browser-row {
+    border-bottom-color: #f4f4f5;
+  }
