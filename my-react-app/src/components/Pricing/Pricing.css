@@ -1,221 +1,272 @@
-.pricing {
-  padding: 120px 0;
-  background: rgb(3, 1, 22);
-  position: relative;
-  overflow: hidden;
-}
-
-.pricing::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: 
-    radial-gradient(circle at 30% 40%, rgba(0, 102, 255, 0.02) 0%, transparent 50%),
-    radial-gradient(circle at 70% 60%, rgba(124, 58, 237, 0.02) 0%, transparent 50%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.pricing-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  position: relative;
-  z-index: 1;
-}
-
-.pricing-header {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 4rem;
-}
-
-.pricing-title {
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
-  color: var(--text-dark);
-  letter-spacing: -0.02em;
-}
-
-.pricing-subtitle {
-  font-size: 1.25rem;
-  color: var(--text-light);
-  line-height: 1.6;
-}
-
-.pricing-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
-}
-
-.pricing-card {
-  background: rgb(3, 1, 22);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 16px;
-  padding: 2.5rem;
-  position: relative;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* Main Container - Matches your dark theme */
+.pr-container {
+  background-color: #030014;
+  color: white;
+  padding: 4rem 1rem;
+  font-family: sans-serif;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  align-items: center;
+  width: 100%;
 }
 
-.pricing-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-  border-color: rgba(0, 102, 255, 0.2);
+/* Header Section */
+.pr-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 800px;
 }
 
-.pricing-card.popular {
-  border-color: rgba(0, 102, 255, 0.3);
-  box-shadow: 0 8px 24px rgba(0, 102, 255, 0.12);
-  background: rgb(3, 1, 22);
+.pr-tag {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid #2a2a4a;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  color: #a0a0c0;
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
 }
 
-.popular-badge {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  font-size: 1.25rem;
-  line-height: 1;
-}
-
-.pricing-card-header {
-  text-align: left;
-  margin-bottom: 2rem;
-}
-
-.pricing-plan-name {
-  font-size: 1.75rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-  color: var(--text-dark);
-  letter-spacing: -0.02em;
-}
-
-.pricing-description {
-  font-size: 0.9375rem;
-  color: rgba(0, 0, 0, 0.6);
-  margin: 0 0 1.5rem;
-  font-weight: 400;
-}
-
-.pricing-price {
-  display: flex;
-  align-items: baseline;
-  justify-content: flex-start;
-  gap: 0.25rem;
-  margin-bottom: 0.75rem;
-}
-
-.price-amount {
+.pr-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--text-dark);
-  line-height: 1;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: white;
 }
 
-.price-period {
-  font-size: 1rem;
-  color: rgba(0, 0, 0, 0.6);
-  font-weight: 400;
+.pr-subtitle {
+  color: #8888aa;
+  font-size: 1.125rem;
 }
 
-.pricing-savings {
-  font-size: 0.875rem;
-  color: rgba(0, 0, 0, 0.6);
-  margin: 0 0 1.5rem;
-  line-height: 1.5;
-}
-
-.pricing-features {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 2rem;
-  flex-grow: 1;
-}
-
-.pricing-feature {
+/* Toggle Switch Container */
+.pr-toggle-container {
   display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  padding: 0.75rem 0;
-  font-size: 1rem;
-  color: var(--text-dark);
+  align-items: center;
+  background-color: #0a0a1f;
+  border: 1px solid #1f1f3a;
+  padding: 0.25rem;
+  border-radius: 999px;
+  margin-bottom: 4rem;
+  position: relative;
 }
 
-.feature-check {
-  color: var(--primary-color);
-  font-weight: 700;
-  font-size: 1.2rem;
-  flex-shrink: 0;
-}
-
-.pricing-button {
-  width: 100%;
-  padding: 1rem;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
+.pr-toggle-btn {
+  background: transparent;
   border: none;
+  color: #8888aa;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
   transition: all 0.3s ease;
 }
 
-.btn-pricing-secondary {
-  background: white;
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
-}
-
-.btn-pricing-secondary:hover {
-  background: var(--primary-color);
+.pr-toggle-btn.active {
+  background-color: #1f1f3a;
   color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 102, 255, 0.3);
 }
 
-.pricing-footer {
-  text-align: center;
+.pr-discount-badge {
+  background-color: #7c3aed; /* Purple */
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  margin-left: 0.5rem;
+  text-transform: uppercase;
+}
+
+/* Cards Grid */
+.pr-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+@media (min-width: 1024px) {
+  .pr-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Individual Card */
+.pr-card {
+  background-color: #0a0a1f;
+  border: 1px solid #1f1f3a;
+  border-radius: 24px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: border-color 0.3s ease;
+}
+
+.pr-card:hover {
+  border-color: #4a4a6a;
+}
+
+/* Highlight for the middle/popular card */
+.pr-card.highlighted {
+  background-color: #0d0d25;
+  border-color: #2d2d55;
+}
+
+/* Card Header content */
+.pr-card-header {
+  margin-bottom: 2rem;
+}
+
+.pr-plan-name-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.pr-plan-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.pr-popular-badge {
+  font-size: 0.75rem;
+  border: 1px solid #4a4a6a;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  color: #c4c4e0;
+}
+
+.pr-plan-desc {
+  color: #8888aa;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Price Section */
+.pr-price-area {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.pr-currency {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+}
+
+.pr-period {
+  color: #8888aa;
+  font-size: 0.9rem;
+}
+
+.pr-savings {
+  color: white;
+  font-size: 0.85rem;
+  margin-bottom: 2rem;
+  line-height: 1.4;
+}
+
+/* Buttons */
+.pr-btn {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 2.5rem;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Outline Button Style */
+.pr-btn-outline {
+  background: transparent;
+  border: 1px solid #2a2a4a;
+  color: white;
+}
+
+.pr-btn-outline:hover {
+  border-color: #4a4a6a;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Filled Button Style (Purple) */
+.pr-btn-filled {
+  background: linear-gradient(90deg, #7c3aed 0%, #a78bfa 100%);
+  border: none;
+  color: white;
+}
+
+.pr-btn-filled:hover {
+  opacity: 0.9;
+}
+
+/* Features List */
+.pr-features {
+  border-top: 1px solid #1f1f3a;
+  padding-top: 2rem;
+}
+
+.pr-features-title {
+  color: #8888aa;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.pr-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pr-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+/* Included Item (White text, check icon) */
+.pr-item-included {
+  color: white;
+}
+
+/* Excluded/Dimmed Item (Grey text, dash icon) */
+.pr-item-excluded {
+  color: #555577;
+}
+
+/* Bottom Link */
+.pr-footer-link {
   margin-top: 3rem;
-}
-
-.pricing-footer-link {
-  font-size: 0.9375rem;
-  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
+  border: 1px solid #2a2a4a;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  transition: background 0.2s;
 }
 
-.pricing-footer-link:hover {
-  color: #0052cc;
-  text-decoration: underline;
+.pr-footer-link:hover {
+  background-color: #0a0a1f;
 }
-
-@media (max-width: 768px) {
-  .pricing {
-    padding: 80px 0;
-  }
-
-  .pricing-title {
-    font-size: 2.2rem;
-  }
-
-  .pricing-subtitle {
-    font-size: 1.1rem;
-  }
-
-  .pricing-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-}
-
