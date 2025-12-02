@@ -2,15 +2,17 @@ import React from 'react';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import Features from './components/Features/Features';
-import FeatureCards from './components/FeatureCards/FeatureCards';
-import Monitoring from './components/Monitoring/Monitoring';
-import Landscape from './components/Landscape/Landscape';
+// import FeatureCards from './components/FeatureCards/FeatureCards';
+// import Monitoring from './components/Monitoring/Monitoring';
+// import Landscape from './components/Landscape/Landscape';
 import Pricing from './components/Pricing/Pricing';
 import FAQs from './components/FAQs/FAQs';
 import Footer from './components/Footer/Footer';
 import HeroImageTilt from './components/Feature_Motion/HeroImageTilt';
 import LogosScroll from './components/LogosScroll/LogosScroll';
-
+import FeaturesSection from "./components/FeaturesSection/FeatureSection";
+import IconsScroll from './components/IconsScroll/IconsScroll';
+import Footers from './components/Globe/GlobeIcon';
 import './App.css';
 
 function App() {
@@ -25,10 +27,13 @@ function App() {
         {/* <FeatureCards /> */}
         {/* <Monitoring /> */}
         {/* <Landscape /> */}
+        <FeaturesSection/>
+        <IconsScroll/>
         <Pricing />
         <FAQs />
+        <Footers/>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
