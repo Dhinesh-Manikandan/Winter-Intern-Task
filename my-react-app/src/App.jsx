@@ -22,9 +22,9 @@ function App() {
         <HeroImageTilt />
         <LogosScroll/>
         <Features />
-        <FeatureCards />
-        <Monitoring />
-        <Landscape />
+        {/* <FeatureCards /> */}
+        {/* <Monitoring /> */}
+        {/* <Landscape /> */}
         <Pricing />
         <FAQs />
       </main>

@@ -3,12 +3,14 @@
   min-height: 100vh;
   overflow-x: hidden;
   background-color: rgb(3, 1, 22);
+  
 }
 
 .App main {
-  width: 100%;
-  background:rgb(3, 1, 22);
  
+  width:100%;
+  background:rgb(3, 1, 22);
+
 }
 
 /* Smooth scrolling */
@@ -20,6 +22,6 @@ html {
 
 
 body, input, textarea, select, button {
-  font-size: 12px;
+  font-size: 8px;
   font-family: sans-serif;
 }
