@@ -257,6 +257,10 @@ const styles = `
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
+
+}
+.brand-link:hover{
+  color:#a78bfa ;
 }
 
 /* Link Columns */
@@ -316,6 +320,12 @@ const styles = `
     justify-content: space-between;
   }
 }
+  @media (max-width: 768px) {
+  .cta-title {
+    font-size: 34px;
+  }
+}
+
 `;
 
 export default function Footers() {

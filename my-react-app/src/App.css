@@ -31,3 +31,11 @@ body, input, textarea, select, button {
 .features{
   background-color: #060016;
 }
+/* Hide Features only on mobile */
+@media (max-width: 480px) {
+  .disappear {
+    display: none !important;
+  }
+}
+
+

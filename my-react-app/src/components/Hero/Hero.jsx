@@ -97,7 +97,7 @@ const Hero = () => {
               required
             />
             <button className="subscription-button" type="submit">
-              Get Started Free
+              Get Started Free ➤
             </button>
           </form>
 

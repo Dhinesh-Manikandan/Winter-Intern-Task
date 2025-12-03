@@ -44,8 +44,8 @@
 
 body {
   --framer-will-change-override: none;
-  margin-left: 100px;
-  margin-right: 100px;
+  /* margin-left: 100px;
+  margin-right: 100px; */
   padding: 0;
   min-width: 320px;
   min-height: 100vh;

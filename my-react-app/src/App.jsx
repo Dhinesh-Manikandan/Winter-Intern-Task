@@ -35,13 +35,18 @@ function App() {
 
         {/* --- Product Section (Linked to "Product" menu) --- */}
         <section id="features">
-          <Features />
-          {/* <FeatureCards /> */}
-          {/* <Monitoring /> */}
-          {/* <Landscape /> */}
-          <FeaturesSection/>
-          <IconsScroll/>
-        </section>
+  <section className="disappear">
+    <Features />
+  </section>
+
+  {/* <FeatureCards /> */}
+  {/* <Monitoring /> */}
+  {/* <Landscape /> */}
+
+  <FeaturesSection />
+  <IconsScroll />
+  
+</section>
 
         {/* --- Pricing Section (Linked to "Pricing" menu & "Get Uncovered" button) --- */}
         <section id="pricing">
