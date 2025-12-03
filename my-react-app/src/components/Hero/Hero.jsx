@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import "./Hero.css";
-import HeroImageTilt from "../Feature_Motion/HeroImageTilt";
-import LogosScroll from "../LogosScroll/LogosScroll";
+// import HeroImageTilt from "../Feature_Motion/HeroImageTilt"; // Integrated below
+// import LogosScroll from "../LogosScroll/LogosScroll"; // You can keep this outside in App.jsx
 
 const Hero = () => {
   const [email, setEmail] = useState("");
@@ -24,81 +24,66 @@ const Hero = () => {
   // ===== Scroll-based tilt motion =====
   const { scrollYProgress } = useScroll();
 
-  const rotateX = useTransform(scrollYProgress, [0, 0.4], [-45, 0]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [0.4, 1]);
-  const y = useTransform(scrollYProgress, [0, 0.4], [120, 0]);
+  // Adjusted values to match the subtle "Uncovered" tilt feel
+  const rotateX = useTransform(scrollYProgress, [0, 0.2], [20, 0]); // Starts tilted back 20deg, flattens to 0
+  const opacity = useTransform(scrollYProgress, [0, 0.1], [0.8, 1]);
+  const scale = useTransform(scrollYProgress, [0, 0.2], [0.9, 1]);
+  const y = useTransform(scrollYProgress, [0, 0.2], [40, 0]);
 
   return (
-    <section id="hero" className="hero relative overflow-hidden">
-      {/* ================== ROTATING CIRCLES ================== */}
+    <section id="hero" className="hero">
+      
+      {/* ================== ROTATING RINGS (Background) ================== */}
       <div className="sync-cycles-circles">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div></div> {/* Ring 1 */}
+        <div></div> {/* Ring 2 */}
+        <div></div> {/* Ring 3 */}
+        <div></div> {/* Ring 4 */}
+        <div></div> {/* Ring 5 */}
+        <div></div> {/* Ring 6 */}
+        <div></div> {/* Ring 7 */}
+        <div></div> {/* Ring 8 */}
+         <div></div> {/* Ring 9 */}
+        <div></div> {/* Ring 10 */}
+        <div></div> {/* Ring 11*/}
+        <div></div> {/* Ring 12 */}
+        <div></div> {/* Ring 13 */}
+        <div></div> {/* Ring 14 */}
+        <div></div> {/* Ring 15 */}
+        {/* <div></div> Ring 16 */}
       </div>
 
-      {/* ================== RADIAL BACKGROUND ================== */}
-      <div className="radial-bg"></div>
+      {/* ================== GRID & VIGNETTE OVERLAYS ================== */}
+      {/* These pseudo-elements are handled in CSS (::before/::after) */}
 
       {/* ================== SUCCESS MESSAGE ================== */}
       {submitted && <div className="email-status">Email Submitted</div>}
 
-      {/* ================== HERO CONTENT ================== */}
-      <div className="hero-content relative z-10">
+      {/* ================== HERO CONTENT (Text & Form) ================== */}
+      <div className="hero-content">
+        
         {/* Top badge */}
-        <div className="hero-whats-new-container">
-          <div className="hero-whats-new">
-            <div className="whats-new-badge-container">
-              <div className="whats-new-badge">
-                <p className="badge-text">Feature highlight</p>
-              </div>
-            </div>
-
-            <a href="/" className="whats-new-link">
-              <p className="link-text">Competitor monitoring</p>
-              <span className="link-icon">
-                <svg
-                  width="14"
-                  height="14"
-                  strokeWidth="1.5"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M6 12h12.5m0 0l-6-6m6 6l-6 6"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
+        <div className="hero-whats-new">
+            <span className="whats-new-badge">Feature highlight</span>
+            <a href="#features" className="whats-new-link">
+              Competitor monitoring
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
             </a>
-          </div>
         </div>
 
         {/* TITLE */}
-        <div className="hero-title-container">
-          <h1 className="hero-title">
-            Monitor your competitors,
-            <br />
-            win more deals.
-          </h1>
-        </div>
+        <h1 className="hero-title">
+          Monitor your competitors,<br />
+          win more deals.
+        </h1>
 
         {/* SUBTITLE */}
-        <div className="hero-description-container">
-          <p className="hero-subtitle">
-            Automated Competitive and Market Intelligence
-            <br />
-            for B2B SaaS Marketing & Sales
-          </p>
-        </div>
+        <p className="hero-subtitle">
+          Automated Competitive and Market Intelligence<br />
+          for B2B SaaS Marketing & Sales
+        </p>
 
         {/* SUBSCRIPTION SECTION */}
         <div className="subscription-container">
@@ -111,7 +96,6 @@ const Hero = () => {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-
             <button className="subscription-button" type="submit">
               Get Started Free
             </button>
@@ -119,31 +103,31 @@ const Hero = () => {
 
           <div className="subscription-info">
             <p>No risk 14-day trial period</p>
-            <span className="dot">•</span>
+            <span className="dot">✦</span> {/* Changed dot to sparkle to match image */}
             <p>No onboarding fees</p>
           </div>
-
         </div>
-        {/* <HeroImageTilt /> */}
-
 
       </div>
-      {/* ================== TILTED IMAGE (THE EFFECT YOU WANT) ================== */}
-      {/* <motion.div
+
+      {/* ================== TILTED DASHBOARD IMAGE ================== */}
+      <motion.div
         style={{
           rotateX,
+          scale,
           opacity,
           y,
           transformStyle: "preserve-3d",
         }}
         className="tilted-hero-image-wrapper"
       >
+        <div className="dashboard-glow"></div> {/* Glow behind image */}
         <img
-          src="https://framerusercontent.com/images/1aTT9zmu9BO3MlacM0Vqso2HtE.png" // <-- Replace with your hero image
-          alt="Dashboard"
+          src="https://framerusercontent.com/images/1aTT9zmu9BO3MlacM0Vqso2HtE.png" 
+          alt="Uncovered Dashboard"
           className="tilted-hero-image"
         />
-      </motion.div> */}
+      </motion.div>
 
     </section>
   );
