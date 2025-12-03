@@ -57,13 +57,16 @@ const Features = () => {
       <div className="features-container">
         <div className="features-header">
           <h2>
-            Made specifically for{" "}
-            <span className="gradient-text">B2B SaaS teams.</span>
+            Made specifically <br></br>for B2B SaaS teams.{" "}
+            {/* <span className="gradient-text">for B2B SaaS teams.</span> */}
           </h2>
+          <div class="text">
           <p>
-            Avoid one-size-fits-all solutions. We are your tailored B2B SaaS
+            Avoid one-size-fits-all solutions.
+            <br></br>We are your tailored B2B SaaS
             framework for analyzing competition.
           </p>
+          </div>
         </div>
 
         <div className="features-grid">
@@ -237,8 +240,10 @@ const Features = () => {
              </div>
 
              <div className="card-content-wrapper">
+              <div class="last">
                <h3>Highlight how you win to your customers</h3>
                <p>Empower Sales and Marketing teams to win more deals with proven strategies.</p>
+               </div>
              </div>
              <div className="hover-border"></div>
           </div>

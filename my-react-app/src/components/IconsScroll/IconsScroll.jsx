@@ -161,7 +161,7 @@ const styles = `
   }
 
   .ls-card:hover {
-    background: radial-gradient(123.159% 73.6111% at 50% 50%, rgba(72, 54, 140, 1) 0%, rgba(43, 10, 160, 1) 68.0994%);  }
+    background: radial-gradient(123.159% 73.6111% at 50% 50%, rgba(72, 54, 140, 1) 0%, #9b62ff  68.0994%);  }
   
   /* Image Styles */
   .ls-card-img {

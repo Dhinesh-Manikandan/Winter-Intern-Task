@@ -5,13 +5,13 @@ import React from 'react';
 const styles = `
   /* Main Container */
   .fs-container {
-    min-height: 100vh;
+    min-height: 70vh;
     width: 100%;
-    background-color: #0f0f29;
+    background-color: 060016;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
+    padding: 1rem;
     font-family: sans-serif;
     box-sizing: border-box;
   }

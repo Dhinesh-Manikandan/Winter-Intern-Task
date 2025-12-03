@@ -3,7 +3,7 @@ import React from 'react';
 // --- CONFIGURATION ---
 // 1. If you have the local file, uncomment the import below:
 import globeImg from '../../Images/globe.png';
-
+import Logo from '../Header/Logo';
 // 2. Placeholder for the globe image (Replace with your actual import)
 // const globeImg = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Rotating_earth_%28large%29.gif/200px-Rotating_earth_%28large%29.gif"; 
 
@@ -38,7 +38,7 @@ const styles = `
   width: 100%;
   max-width: 1000px;
   /* Pulls the globe up so only the top half is visible */
-  margin-top: -350px; 
+  margin-top: -250px; 
   aspect-ratio: 1/1;
   display: flex;
   justify-content: center;
@@ -366,12 +366,8 @@ export default function Footers() {
           {/* Brand / Logo Column */}
           <div className="footer-brand-col">
             <div className="brand-logo-row">
-              <svg className="brand-icon" viewBox="0 0 24 24" fill="currentColor">
-<path d="M 18.923 0 C 25.194 0 30.278 5.104 30.278 11.4 C 30.278 17.696 25.194 22.8 18.923 22.8 C 12.652 22.8 7.569 17.696 7.569 11.4 C 7.569 5.104 12.652 0 18.923 0 Z" fill="rgba(235,233,254,0.5)"></path>                <circle cx="12" cy="12" r="5" fill="currentColor"/>
-<path d="M 15.141 19 C 15.141 12.704 20.225 7.6 26.496 7.6 C 32.767 7.6 37.85 12.704 37.85 19 C 37.85 25.296 32.767 30.4 26.496 30.4 C 20.225 30.4 15.141 25.296 15.141 19 Z" fill="rgba(235,233,254,0.5)"></path>
-              </svg>
-              <span className="brand-name">Uncovered</span>
-            </div>
+               <Logo/>
+              </div>
             
             <p className="brand-desc">
               Uncovered automates Competitive Intelligence for B2B SaaS marketing, product, and sales teams. Monitor your competitors pricing, positioning, feature changes, A/B tests, and more.

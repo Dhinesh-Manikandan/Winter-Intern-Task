@@ -27,7 +27,7 @@ const LogosScroll = () => {
         }}
         animate={{ x: ["0%", "-50%"] }} // scroll left
         transition={{
-          x: { repeat: Infinity, repeatType: "loop", duration: 15, ease: "linear" },
+          x: { repeat: Infinity, repeatType: "loop", duration: 25, ease: "linear" },
         }}
       >
         {logos.concat(logos).map((logo, index) => (

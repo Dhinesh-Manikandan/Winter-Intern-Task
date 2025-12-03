@@ -19,9 +19,15 @@ html {
 }
 
 /* Remove default button styles */
-
+/* 
+body {
+  padding-top: 110px;
+} */
 
 body, input, textarea, select, button {
   font-size: 8px;
   font-family: sans-serif;
+}
+.features{
+  background-color: #060016;
 }

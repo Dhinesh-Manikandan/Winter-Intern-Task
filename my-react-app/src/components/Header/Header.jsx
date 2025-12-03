@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Header.css';
-import Logo from './Logo';
+import Logo from './Logo'; // Ensure this path is correct
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,18 +16,12 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       setIsMobileMenuOpen(false);
     }
-  };
-
-  const handleNavClick = (e, sectionId) => {
-    e.preventDefault();
-    scrollToSection(sectionId);
   };
 
   const menuItems = [
@@ -41,107 +35,67 @@ const Header = () => {
 
   return (
     <header ref={headerRef} className={`header ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="header-wrapper">
-        <div className="header-container">
-          <div className="logo-container">
-            <div className="logo" onClick={() => scrollToSection('hero')}>
-              <Logo />
-            </div>
+      <div className="header-container">
+        
+        {/* Left: Logo */}
+        <div className="logo-section">
+          <div className="logo-wrapper" onClick={() => scrollToSection('hero')}>
+            <Logo />
           </div>
-          
-          <nav className={`nav-menu ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
-            {menuItems.map((item, index) => (
-              <div key={index} className="nav-item-container">
-                <a
-                  className="nav-link"
-                  href={item.href || `#${item.section}`}
-                  onClick={(e) => item.section && handleNavClick(e, item.section)}
-                  tabIndex={0}
-                >
-                  <div className="nav-content nav-content-default">
-                    <div className="nav-label">
-                      <p className="nav-text">{item.label}</p>
-                    </div>
-                  </div>
-                  <div className="nav-content nav-content-hover">
-                    <div className="nav-label">
-                      <p className="nav-text">{item.label}</p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            ))}
-          </nav>
+        </div>
 
-          <div className="header-actions">
-            <div className="header-action-container">
-              <a 
-                className="btn-login-link" 
-                href="#"
-                tabIndex={0}
-              >
-                <div className="btn-content btn-content-default">
-                  <div className="btn-label">
-                    <p className="btn-text">Login</p>
-                  </div>
-                </div>
-                <div className="btn-content btn-content-hover">
-                  <div className="btn-label">
-                    <p className="btn-text">Login</p>
-                  </div>
-                </div>
-              </a>
-            </div>
-            
-            <div className="header-action-container">
-              <a
-                className="btn-get-uncovered"
-                href="#pricing"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection('pricing');
-                }}
-                tabIndex={0}
-              >
-                <div className="btn-label-cta">
-                  <p className="btn-text-cta">Get Uncovered</p>
-                </div>
-                <div className="btn-icon-right">
-                  <svg 
-                    width="100%" 
-                    height="1.5em" 
-                    strokeWidth="1.5" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                    style={{ width: '100%', height: '100%' }}
-                  >
-                    <path 
-                      d="M6 12h12.5m0 0l-6-6m6 6l-6 6" 
-                      stroke="currentColor" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
-              </a>
-            </div>
-            
+        {/* Center: Floating Pill Navigation */}
+        <nav className={`nav-pill ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
+          {menuItems.map((item, index) => (
+            <a
+              key={index}
+              className="nav-link"
+              href={item.href || `#${item.section}`}
+              onClick={(e) => {
+                e.preventDefault();
+                if (item.section) scrollToSection(item.section);
+              }}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        {/* Right: Actions */}
+        <div className="actions-section">
+          <a href="#login" className="btn-login">
+            Login
+          </a>
+
+          <a 
+            href="#pricing" 
+            className="btn-get-uncovered"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection('pricing');
+            }}
+          >
+            <span>Get Uncovered</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+
+          {/* Mobile Menu Toggle */}
             <button 
               className="mobile-menu-toggle"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
             >
-              <span></span>
-              <span></span>
-              <span></span>
+              <span className={`bar ${isMobileMenuOpen ? 'open' : ''}`}></span>
+              <span className={`bar ${isMobileMenuOpen ? 'open' : ''}`}></span>
+              <span className={`bar ${isMobileMenuOpen ? 'open' : ''}`}></span>
             </button>
-          </div>
         </div>
+
       </div>
     </header>
   );
 };
 
 export default Header;
-
