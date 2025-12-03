@@ -1,112 +1,5 @@
 import React from 'react';
-
-// This CSS string matches exactly what you requested.
-// We embed it here so you don't have to worry about file paths or imports failing.
-const styles = `
-  /* Main Container */
-  .fs-container {
-    min-height: 70vh;
-    width: 100%;
-    background-color: 060016;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    font-family: sans-serif;
-    box-sizing: border-box;
-  }
-
-  /* Grid Wrapper */
-  .fs-grid {
-    width: 100%;
-    max-width: 1152px;
-    margin: 0 auto;
-    border-top: 1px solid #1b1b43;
-    border-bottom: 1px solid #1b1b43;
-    background-color: #1b1b43;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1px;
-  }
-
-  /* Tablet/Desktop Breakpoint */
-  @media (min-width: 768px) {
-    .fs-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  /* Individual Card */
-  .fs-card {
-    position: relative;
-    background-color: #05051e;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    height: 100%;
-    transition: background-color 0.3s ease;
-    box-sizing: border-box;
-    cursor: pointer;
-  }
-
-  .fs-card:hover {
-    background-color: #080825;
-  }
-
-  /* Icon Container (Fixed Size) */
-  .fs-icon-container {
-    height: 24px;
-    width: 24px;
-    overflow: hidden;
-    position: relative;
-    color: white;
-  }
-
-  /* The Sliding Track */
-  .fs-icon-track {
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-  }
-
-  /* Hover Effect: Slide track up by 50% */
-  .fs-card:hover .fs-icon-track {
-    transform: translateY(-50%);
-  }
-
-  /* Individual Icon SVG Wrapper */
-  .fs-icon {
-    height: 24px;
-    width: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  /* Text Content */
-  .fs-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .fs-title {
-    color: rgb(235, 233, 254);
-    font-size: 1.125rem;
-    font-weight: 500;
-    line-height: 1.25;
-    margin: 0;
-  }
-
-  .fs-description {
-    color: rgb(152, 162, 179);
-    font-size: 1rem;
-    line-height: 1.625;
-    margin: 0;
-  }
-`;
+import './FeatureSection.css';
 
 const features = [
   {
@@ -206,7 +99,6 @@ const AnimatedIcon = ({ paths }) => {
 export default function FeaturesSection() {
   return (
     <>
-      <style>{styles}</style>
       <div className="fs-container">
         <div className="fs-grid">
           {features.map((feature) => (
