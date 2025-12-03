@@ -1,11 +1,8 @@
 import React from 'react';
 import './GlobeIcon.css';
-// --- CONFIGURATION ---
-// 1. If you have the local file, uncomment the import below:
+
 import globeImg from '../../Images/globe.png';
 import Logo from '../Header/Logo';
-// 2. Placeholder for the globe image (Replace with your actual import)
-// const globeImg = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Rotating_earth_%28large%29.gif/200px-Rotating_earth_%28large%29.gif"; 
 
 export default function Footers() {
   return (
