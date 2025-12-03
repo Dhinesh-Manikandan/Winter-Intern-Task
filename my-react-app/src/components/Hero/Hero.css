@@ -323,14 +323,15 @@
 
 /* ===================== SUBSCRIPTION FORM ===================== */
 .subscription-container {
-  size:2px;
+  size:1px;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
   width: 100%;
-  max-width: 420px;
+  max-width: 350px;
+  min-height: auto;
 }
 
 .subscription-form {
@@ -342,19 +343,23 @@
   width: 100%;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 100px;
-  padding: 16px 16px 16px 16px;
+  border-radius: 20px;
+  padding: 12px 10px 12px 14px;
   color: white;
   font-size: 14px;
   outline: none;
   transition: border-color 0.2s;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .subscription-input:focus { border-color: #7c3aed; }
 
 .subscription-button {
   position: absolute;
   right: 6px;
-  top: 6px;
+  top: 5px;
   bottom: 6px;
   background: #7c3aed;
   border: none;
@@ -413,7 +418,7 @@
 @media(max-width: 768px) {
   .hero-title { font-size: 40px; }
   .sync-cycles-circles div:nth-child(5) { display: none; }
-  .subscription-input { padding-right: 20px; padding-bottom: 60px; text-align: center; }
+  .subscription-input { padding-right: 20px; padding-bottom: 12px; text-align: center; }
   .subscription-button { position: static; width: 100%; margin-top: 10px; padding: 14px 0; }
   .tilted-hero-image-wrapper { margin-top: 40px; }
 }
