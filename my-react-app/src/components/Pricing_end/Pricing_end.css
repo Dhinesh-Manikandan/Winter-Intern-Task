@@ -1,0 +1,177 @@
+.pricing-end-page {
+    margin-top:30px;
+}
+
+
+/* ===================== SNAKE RINGS CONTAINER ===================== */
+.sync-cycles-circles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  /* Soft vignette mask to fade edges */
+  mask-image: radial-gradient(circle, black 40%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle, black 40%, transparent 70%);
+}
+
+/* ===================== SHARED RING STYLES ===================== */
+.sync-cycles-circles div {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%; /* Perfect Circle */
+  box-sizing: border-box;
+  mix-blend-mode: screen;
+  
+  /* --- THE SNAKE EFFECT --- */
+  /* 1. Make the base ring invisible */
+  border: 1px solid transparent;
+  
+  /* 2. Paint the "Head" of the snake bright white */
+  border-top: 1px solid rgba(226, 232, 255, 0.129);
+  
+  /* 3. Paint the "Body" of the snake fading white */
+  border-left: 1px solid rgba(226, 232, 255, 0.147);
+  
+  /* Optional: Add a subtle glow to the line */
+  /* box-shadow: 0 0 15px rgba(255, 255, 255, 0.1); */
+
+  will-change: transform;
+}
+
+/* ===================== ANIMATIONS ===================== */
+@keyframes rotateCw {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes rotateCcw {
+  from { transform: translate(-50%, -50%) rotate(360deg); }
+  to   { transform: translate(-50%, -50%) rotate(0deg); }
+}
+
+/* ===================== INDIVIDUAL RINGS ===================== */
+/* We vary sizes and speeds. Inner rings = fast, Outer rings = slow */
+/* Ring 1 */
+.sync-cycles-circles div:nth-child(1) {
+  width: 400px;
+  height: 400px;
+  animation: rotateCw 7s linear infinite;
+  border-width: 1.5px;
+}
+
+/* Ring 2 */
+.sync-cycles-circles div:nth-child(2) {
+  width: 420px;
+  height: 420px;
+  animation: rotateCw 7.06s linear infinite;
+}
+
+/* Ring 3 */
+.sync-cycles-circles div:nth-child(3) {
+  width: 440px;
+  height: 440px;
+  animation: rotateCw 7.12s linear infinite;
+}
+
+/* Ring 4 */
+.sync-cycles-circles div:nth-child(4) {
+  width: 460px;
+  height: 460px;
+  animation: rotateCw 7.18s linear infinite;
+}
+
+/* Ring 5 */
+.sync-cycles-circles div:nth-child(5) {
+  width: 480px;
+  height: 480px;
+  animation: rotateCw 7.24s linear infinite;
+  opacity: 0.8;
+}
+
+/* Ring 6 */
+.sync-cycles-circles div:nth-child(6) {
+  width: 500px;
+  height: 500px;
+  animation: rotateCw 7.30s linear infinite;
+  opacity: 0.8;
+}
+
+/* Ring 7 */
+.sync-cycles-circles div:nth-child(7) {
+  width: 520px;
+  height: 520px;
+  animation: rotateCw 7.36s linear infinite;
+  opacity: 0.8;
+}
+
+/* Ring 8 */
+.sync-cycles-circles div:nth-child(8) {
+  width: 540px;
+  height: 540px;
+  animation: rotateCw 7.42s linear infinite;
+  opacity: 0.8;
+}
+
+/* Ring 9 */
+.sync-cycles-circles div:nth-child(9) {
+  width: 560px;
+  height: 560px;
+  animation: rotateCw 7.48s linear infinite;
+  opacity: 0.8;
+}
+
+/* Ring 10 */
+.sync-cycles-circles div:nth-child(10) {
+  width: 580px;
+  height: 580px;
+  animation: rotateCw 7.54s linear infinite;
+  opacity: 0.8;
+}
+
+/* Ring 11 */
+.sync-cycles-circles div:nth-child(11) {
+  width: 600px;
+  height: 600px;
+  animation: rotateCw 7.60s linear infinite;
+  opacity: 0.8;
+}
+
+/* Ring 12 */
+.sync-cycles-circles div:nth-child(12) {
+  width: 620px;
+  height: 620px;
+  animation: rotateCw 7.66s linear infinite;
+  opacity: 0.8;
+}
+
+/* Ring 13 */
+.sync-cycles-circles div:nth-child(13) {
+  width: 640px;
+  height: 640px;
+  animation: rotateCw 7.72s linear infinite;
+  opacity: 0.8;
+}
+
+/* Ring 14 */
+.sync-cycles-circles div:nth-child(14) {
+  width: 660px;
+  height: 660px;
+  animation: rotateCw 7.78s linear infinite;
+  opacity: 0.8;
+}
+
+/* Ring 15 */
+.sync-cycles-circles div:nth-child(15) {
+  width: 680px;
+  height: 680px;
+  animation: rotateCw 7.84s linear infinite;
+  opacity: 0.8;
+}
+
+

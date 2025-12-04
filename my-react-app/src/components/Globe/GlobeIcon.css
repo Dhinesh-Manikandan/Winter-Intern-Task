@@ -315,3 +315,44 @@
   }
 }
 
+/* Container styles */
+.footer-nav-link {
+  position: relative;
+  overflow: hidden; /* Hides the text when it slides out */
+  display: inline-block;
+  text-decoration: none;
+  /* Adjust color/font size here if needed to match your footer design */
+  color: #a0a0b0; 
+  transition: color 0.3s ease;
+}
+
+/* The visible text wrapper */
+.footer-nav-link span {
+  display: block;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* The invisible duplicate text waiting below */
+.footer-nav-link::after {
+  content: attr(data-text); /* Pulls text from the HTML attribute */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #ffffff; /* Optional: Make the hover text brighter/white */
+}
+
+/* --- HOVER STATE --- */
+
+/* Slide original text UP */
+.footer-nav-link:hover span {
+  transform: translateY(-100%);
+}
+
+/* Slide duplicate text UP into view */
+.footer-nav-link:hover::after {
+  transform: translateY(-100%);
+}
+
