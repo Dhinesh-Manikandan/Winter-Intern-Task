@@ -1,10 +1,11 @@
 import React from 'react';
 import './GlobeIcon.css';
-
+import { useNavigate } from 'react-router-dom';
 import globeImg from '../../Images/globe.png';
 import Logo from '../Header/Logo';
-
+import Pricing_end from '../Pricing_end/Pricing_end';
 export default function Footers() {
+  const navigate = useNavigate();
   return (
     <div className="footer-wrapper">
 
@@ -32,12 +33,15 @@ export default function Footers() {
           <p className="cta-subtitle">
             Your Competitive Intelligence Platform for B2B SaaS
           </p>
-          <button className="cta-btn">
-            Get Uncovered
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </button>
+          <button 
+      className="cta-btn" 
+      onClick={() => navigate('/pricing')} /* 2. Add this click handler */
+    >
+      Get Uncovered
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </button>
         </div>
 
         {/* --- Separator Line --- */}
@@ -60,7 +64,7 @@ export default function Footers() {
             
             <span className="brand-badge">Made in Europe 🇪🇺</span>
             <br />
-            <a href="#" className="brand-link">
+            <a href="#" className="brand-link"onClick={() => navigate('/pricing')}>
               Get Uncovered 
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
@@ -69,14 +73,35 @@ export default function Footers() {
           </div>
 
           {/* Platform Column */}
+         {/* Platform Column */}
           <div>
             <h3 className="footer-col-title">Platform</h3>
             <ul className="footer-nav-list">
-              <li><a href="#" className="footer-nav-link">Product</a></li>
-              <li><a href="#" className="footer-nav-link">Win-Loss and Churn</a></li>
-              <li><a href="#" className="footer-nav-link">Blog</a></li>
-              <li><a href="#" className="footer-nav-link">Pricing</a></li>
-              <li><a href="#" className="footer-nav-link">Contact Us</a></li>
+              <li>
+                <a href="/features" className="footer-nav-link" data-text="Product">
+                  <span>Product</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" className="footer-nav-link" data-text="Win-Loss and Churn">
+                  <span>Win-Loss and Churn</span>
+                </a>
+              </li>
+              <li>
+                <a href="/blog" className="footer-nav-link" data-text="Blog">
+                  <span>Blog</span>
+                </a>
+              </li>
+              <li>
+                <a href="/pricing" className="footer-nav-link" data-text="Pricing">
+                  <span>Pricing</span>
+                </a>
+              </li>
+              <li>
+                <a href="/contact" className="footer-nav-link" data-text="Contact Us">
+                  <span>Contact Us</span>
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -84,14 +109,30 @@ export default function Footers() {
           <div>
             <h3 className="footer-col-title">Company</h3>
             <ul className="footer-nav-list">
-              <li><a href="#" className="footer-nav-link">About Us</a></li>
-              <li><a href="#" className="footer-nav-link">Careers</a></li>
-              <li><a href="#" className="footer-nav-link">Privacy Policy</a></li>
-              <li><a href="#" className="footer-nav-link">Terms of Service</a></li>
+              <li>
+                <a href="/about" className="footer-nav-link" data-text="About Us">
+                  <span>About Us</span>
+                </a>
+              </li>
+              <li>
+                <a href="/careers" className="footer-nav-link" data-text="Careers">
+                  <span>Careers</span>
+                </a>
+              </li>
+              <li>
+                <a href="/privacy" className="footer-nav-link" data-text="Privacy Policy">
+                  <span>Privacy Policy</span>
+                </a>
+              </li>
+              <li>
+                <a href="/terms" className="footer-nav-link" data-text="Terms of Service">
+                  <span>Terms of Service</span>
+                </a>
+              </li>
             </ul>
           </div>
 
-          {/* Offices Column */}
+          {/* Offices Column (Static text, no animation needed here) */}
           <div>
             <h3 className="footer-col-title">Offices</h3>
             <ul className="footer-nav-list">

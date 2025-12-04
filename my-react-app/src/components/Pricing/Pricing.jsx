@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import './Pricing.css';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Pricing() {
-  const [billingCycle, setBillingCycle] = useState('annually'); // 'monthly' or 'annually'
-
+  const [billingCycle, setBillingCycle] = useState('monthly'); // 'monthly' or 'annually'
+  const navigate = useNavigate();
   // Pricing Data based on your screenshots
   const plans = [
     {
@@ -150,7 +152,7 @@ export default function Pricing() {
       {/* Footer Link */}
       <div className="text-center mt-8">
         <p className="end">More details and all features</p>
-        <button className="pr-footer-link">
+        <button className="pr-footer-link" onClick={() => navigate('/pricing')}>
           View Pricing Page <span>→</span>
         </button>
       </div>
